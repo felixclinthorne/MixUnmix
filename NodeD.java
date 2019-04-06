@@ -1,4 +1,3 @@
-package W19Project4GIVETOSTUDENTS;
 
 import java.io.Serializable;
 

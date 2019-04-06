@@ -1,4 +1,3 @@
-package W19Project4GIVETOSTUDENTS;
 
 public class DoubleLinkedList<E>  {
 	protected NodeD<E> top;      // The first NodeD<E> in the list

@@ -1,4 +1,3 @@
-package W19Project4GIVETOSTUDENTS;
 
 public class NodeCB {
     private int clipBoardNumber;
