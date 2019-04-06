@@ -141,9 +141,4 @@ public class DoubleLinkedList<E>  {
 
 		return retVal;
 	}
-
-
-	// Create the rest of the needed methods.
-
-
 }

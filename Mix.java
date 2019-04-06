@@ -39,6 +39,9 @@ public class Mix {
 
 	private void mixture() {
 		do {
+			for (int i = 0; i < userMessage.length(); i++) {
+				message.add(userMessage.charAt(i));
+			}
 			DisplayMessage();
 			System.out.print("Command: ");
 
