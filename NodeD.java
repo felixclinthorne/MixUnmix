@@ -1,3 +1,10 @@
+/****************************************************
+ * Serializable node
+ *
+ * Created by Tim Bomers and Matt Hendrick
+ * CIS 163
+ *
+ ****************************************************/
 
 import java.io.Serializable;
 
