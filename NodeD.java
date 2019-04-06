@@ -1,4 +1,3 @@
-
 import java.io.Serializable;
 
 public class NodeD<E> implements Serializable {

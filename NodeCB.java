@@ -1,4 +1,3 @@
-
 public class NodeCB {
     private int clipBoardNumber;
     private NodeD<Character> topOfClipBoard;
