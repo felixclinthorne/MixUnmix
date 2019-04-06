@@ -6,6 +6,7 @@ public class NodeD<E> implements Serializable {
     public NodeD prev;
 
     public NodeD() {
+
         super();
     }
 
