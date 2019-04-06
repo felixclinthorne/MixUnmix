@@ -1,6 +1,14 @@
 import java.io.*;
 import java.util.Scanner;
 
+/************************************************
+ * This is the class to unmix a previously mixed message
+ *
+ * Created by Tim Bomers and Matt Hendrick
+ *
+ * CIS 163
+ *
+ ************************************************/
 public class UnMix {
 	private DoubleLinkedList<Character> message;
 
