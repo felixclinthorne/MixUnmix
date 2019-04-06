@@ -142,9 +142,25 @@ public class Mix {
 
 	private void helpPage() {
 		System.out.println("Commands:");
-		System.out.println("\tQ filename	means, quit! " + " save to filename" );			
-		System.out.println("\t  ~ is used for a space character" );		
-		System.out.println("\t .... etc" );		
-		System.out.println("\th\tmeans to show this help page");
+		System.out.println("\t'q' will quit the program and print the final mixed-up message");
+		System.out.println("\tto the screen.  It will also save the set of undo commands into");
+		System.out.println("\ta textfile named 'filename'");
+		System.out.println();
+		System.out.println("\t~ is used for a space character" );
+		System.out.println();
+		System.out.println("\t'b s #' will insert String 's' at position #.  This is an insert");
+		System.out.println("\tbefore command.  Example: b abc 3 would insert 'abc' starting at");
+		System.out.println("\tposition 3.");
+		System.out.println();
+		System.out.println("\t'r # *' remove all the characters within the message, range # to *");
+		System.out.println("\tExample: 'r 3 5 would start at position 3 and remove 3, 4, 5");
+		System.out.println();
+		System.out.println("\t'h'\tmeans to show this help page");
+		System.out.println();
+		System.out.println("\t'd #' deletes all of the '#' in the message. '#' is one character");
+		System.out.println();
+		System.out.println("\t'r # *' replaces all the # with * in the message. # and * are each one character");
+		System.out.println();
+		System.out.println("\t'z' randomizes the message and mixes it a multiple number of times");
 	}
 }
