@@ -33,14 +33,27 @@ public class DoubleLinkedList<E>  {
      * @param e The element to be added to the doubly linked list
      */
 	public void add(E e) {
-	    NodeD<E> newNode = new NodeD<E>(e);
-	    NodeD<E> cursorNode
+
+		//creates a new NodeD that contain the desired element
+	    NodeD<E> newNode = new NodeD<E>();
+		newNode.setData(e);
+
+		//if the size of the double linked list is 0,
+		//makes "top" equal to  "newNode"
 	    if (this.size() == 0) {
 	        this.top = newNode;
-        } else if (this.size() == 1) {
+
+        }
+	    //If the size of the double linked list is 1,
+		//Attaches the newNode to "top"
+	    else if (this.size() == 1) {
 	        newNode.setPrev(this.top);
 	        this.top.setNext(newNode);
-        } else {
+        }
+	    //If the size of the double linked list is > 1,
+		//Moves "curser" to the last element in the list and
+		//attaches "newNode" to "curser"
+	    else {
 	        for(int i = 0; i < this.size(); i++) {
 	            cursor = cursor.getNext();
             }

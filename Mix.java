@@ -14,6 +14,7 @@ public class Mix {
 
 	private DoubleLinkedList<Character> message;
 	private String undoCommands;
+	//TODO: Switch to LL
 	private Hashtable<Integer, DoubleLinkedList<Character>> clipBoards;
 
 	private String userMessage;
@@ -22,6 +23,7 @@ public class Mix {
 	public Mix() {
 		scan = new Scanner(System.in);
 		message = new DoubleLinkedList<Character>();
+		//TODO: Switch to LL
 		clipBoards = new Hashtable<Integer, DoubleLinkedList<Character>>();
 
 		undoCommands = "";
