@@ -95,6 +95,14 @@ public class Mix {
 	}
 
 	private void remove(int start, int stop) {
+        //TODO: check that the start and end is valid
+
+        undoCommands = undoCommands + "r " + start + " " +stop + " ";
+
+        //TODO: Remove the specified elements AND add them to "undoCommands"
+
+        undoCommands = undoCommands + "\n";
+
 
 	}
 
@@ -111,13 +119,13 @@ public class Mix {
 	}
          
 	private void insertbefore(String token, int index) throws IllegalArgumentException{
-	    if(message.size() <= index) {
+	    if(index >= message.size()) {
 	        throw new IllegalArgumentException();
         }
 
 	    undoCommands = undoCommands + "b " + token + " " + index + "\n";
-	    for (int i = token.length() - 1; i >= 0; i ++) {
-	        message.add(index, token.charAt(i));
+	    for (int i = token.length() - 1; i >= 0; i--) {
+	      message.add(token.charAt(i));
         }
 	}
 
