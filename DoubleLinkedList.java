@@ -106,7 +106,7 @@ public class DoubleLinkedList<E>  {
 	 */
 	private void setCursor(int index) {
 		cursor = this.top;
-		for (int i = 0; i <= index; i++) {
+		for (int i = 0; i < index; i++) {
 			cursor = cursor.getNext();
 		}
 	}
