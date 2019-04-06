@@ -27,6 +27,48 @@ public class DoubleLinkedList<E>  {
 
 	}
 
+    /**
+     * A method to add an element at the end of this doubly linked list.
+     *
+     * @param e The element to be added to the doubly linked list
+     */
+	public void add(E e) {
+	    NodeD<E> newNode = new NodeD<E>(e);
+	    NodeD<E> cursorNode
+	    if (this.size() == 0) {
+	        this.top = newNode;
+        } else if (this.size() == 1) {
+	        newNode.setPrev(this.top);
+	        this.top.setNext(newNode);
+        } else {
+	        for(int i = 0; i < this.size(); i++) {
+	            cursor = cursor.getNext();
+            }
+	        newNode.setPrev(this.cursor);
+	        cursor.setNext(newNode);
+        }
+    }
+
+    /**
+     * Method to increment the size of a doubly linked list
+     *
+     * @return the size of the doubly linked list
+     */
+    public int size() {
+	    cursor = this.top;
+	    int nodeCounter = 0;
+	    while (cursor != null) {
+	        nodeCounter++;
+	        cursor = cursor.getNext();
+        }
+	    return nodeCounter;
+    }
+
+    /**
+     * Prints out the string of data
+     *
+     * @return
+     */
 	public String toString() {
 		String retVal = "";
 		NodeD<E> cur = top;
