@@ -60,6 +60,31 @@ public class DoubleLinkedList<E>  {
         }
     }
 
+	public void add(int index, E e) {
+
+		//creates a new NodeD that contain the desired element
+		NodeD<E> newNode = new NodeD<E>();
+		newNode.setData(e);
+
+		NodeD<E> tempPrevious = new NodeD<E>();
+		if (cursor.getPrev() != null) {
+			setCursor(index-1);
+			tempPrevious = cursor;
+		}
+		NodeD<E> tempNext = new NodeD<E>();
+		if (cursor.getNext() != null) {
+			setCursor(index);
+			tempPrevious = cursor;
+		}
+
+		newNode.setNext(tempNext);
+		newNode.setPrev(tempPrevious);
+		tempNext.setPrev(newNode);
+		tempPrevious.setNext(newNode);
+	}
+
+
+
 	/**
 	 * This will remove a given element from the doubly linked list at position index
 	 *

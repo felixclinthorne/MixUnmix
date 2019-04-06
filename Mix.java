@@ -110,8 +110,15 @@ public class Mix {
 
 	}
          
-	private void insertbefore(String token, int index) {
+	private void insertbefore(String token, int index) throws IllegalArgumentException{
+	    if(message.size() <= index) {
+	        throw new IllegalArgumentException();
+        }
 
+	    undoCommands = undoCommands + "b " + token + " " + index + "\n";
+	    for (int i = token.length() - 1; i >= 0; i ++) {
+	        message.add(index, token.charAt(i));
+        }
 	}
 
 	private void DisplayMessage() {
@@ -135,7 +142,6 @@ public class Mix {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		out.println(undoCommands);
 		out.close();
 	}
