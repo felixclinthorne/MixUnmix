@@ -1,4 +1,12 @@
-
+/**********************************************
+ * This is the Double Linked List structure that will hold the data
+ * for mixing and unmixing.
+ *
+ * Created by Tim Bomers and Matt Hendrick
+ * CIS 163
+ *
+ * @param <E> Generic type for the nodes within
+ **********************************************/
 public class DoubleLinkedList<E>  {
 	protected NodeD<E> top;      // The first NodeD<E> in the list
 
