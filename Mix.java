@@ -10,6 +10,7 @@ import java.io.*;
 import java.util.Hashtable;
 import java.util.Scanner;
 
+
 public class Mix {
 
     private DoubleLinkedList<Character> message;
@@ -61,7 +62,25 @@ public class Mix {
                         insertbefore(scan.next(), scan.nextInt());
                         break;
                     case "r":
-                        remove(scan.nextInt(), scan.nextInt());
+                    	if( scan.hasNextInt()) {
+                    		int num1 = scan.nextInt();
+							int num2;
+                    		if (scan.hasNextInt()) {
+                    			num2 = scan.nextInt();
+							}
+                    		else {
+                    			throw new IllegalArgumentException();
+							}
+                    		remove(num1, num2);
+						} else {
+                    		String str1 = scan.next();
+                    		String str2 = scan.next();
+                    		if(str1.length() == 1 && str2.length() == 1) {
+                    			replace(str1.charAt(0), str2.charAt(0));
+							} else {
+                    			throw new IllegalArgumentException();
+							}
+						}
                         break;
                     case "c":
                         copy(scan.nextInt(), scan.nextInt(), scan.nextInt());
@@ -95,33 +114,28 @@ public class Mix {
     }
 
     private void remove(int start, int stop) {
-        //TODO: check that the start and end is valid
-        if (Character.isDigit(start)) {
-            if (start < message.size() || stop >= message.size()
-                    || start > stop) {
-                throw new IllegalArgumentException();
-            }
-            undoCommands = undoCommands + "r " + start + " " + stop + " ";
-            for (int i = start; i < stop; i++) {
-                message.remove(start);
-            }
-        }
-
-        else if(!Character.isDigit(start)) {
-            for (int j = 0; j < message.size(); j++) {
-                if (message.charAt(j) == ) {
-                    message.remove(start);
-                    message.add(stop);
-                }
-            }
-        }
-
-        //TODO: Remove the specified elements AND add them to "undoCommands"
-
-        undoCommands = undoCommands + "\n";
-
-
+    	if (start < 0 || stop >= message.size() - 1
+				|| start > stop) {
+    		throw new IllegalArgumentException();
+    	}
+    	String temp = "";
+    	for (int i = start; i < stop; i++) {
+    		temp = temp + message.get(i);
+    		message.remove(i);
+    	}
+    	undoCommands = undoCommands + "r " + start + " " + temp + "\n";
     }
+
+    private void replace(char find, char replace) {
+		for (int i = 0; i < message.size(); i++) {
+			if (message.get(i) == find) {
+				message.remove(i);
+				message.add(i, replace);
+			}
+		}
+		undoCommands = undoCommands + "\n";
+	}
+
 
     private void cut(int start, int stop, int clipNum) {
 
