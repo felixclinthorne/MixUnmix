@@ -133,9 +133,9 @@ public class Mix {
     		throw new IllegalArgumentException();
     	}
     	String temp = "";
-    	for (int i = start; i < stop; i++) {
+    	for (int i = start; i <= stop; i++) {
     		temp = temp + message.get(i);
-    		message.remove(i);
+    		message.remove(start);
     	}
     	undoCommands = undoCommands + "r " + start + " " + temp + "\n";
     }
