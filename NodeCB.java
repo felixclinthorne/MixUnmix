@@ -12,6 +12,7 @@ public class NodeCB {
     private NodeCB next;
 
     public NodeCB() {
+        myLinkedList = new DoubleLinkedList<Character>();
     }
 
     public int getClipBoardNumber() {

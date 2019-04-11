@@ -157,6 +157,7 @@ public class DoubleLinkedList<E>  {
 	public String toString() {
 		String retVal = "";
 		NodeD<E> cur = top;
+
 		while (cur != null) {
 			retVal += cur.getData();
 			cur = cur.getNext();

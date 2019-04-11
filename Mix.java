@@ -137,11 +137,14 @@ public class Mix {
     }
 
     private void copy(int start, int stop, int clipNum) {
-
+        String copyString = userMessage.substring(start, stop);
+        clipBoards.add(clipNum, copyString);
+        return;
     }
 
-    private void paste( int index, int clipNum) {
-
+    private void paste( int clipNum, int index) {
+        String pasteString = clipBoards.get(clipNum).getMyLinkedList().toString();
+        insertbefore(pasteString, index);
     }
 
     private void insertbefore(String token, int index) throws IllegalArgumentException{
@@ -168,7 +171,6 @@ public class Mix {
     }
 
     public void save(String filename) {
-
         PrintWriter out = null;
         try {
             out = new PrintWriter(new BufferedWriter(new FileWriter(filename)));
