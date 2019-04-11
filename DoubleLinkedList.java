@@ -83,8 +83,6 @@ public class DoubleLinkedList<E>  {
 		tempPrevious.setNext(newNode);
 	}
 
-
-
 	/**
 	 * This will remove a given element from the doubly linked list at position index
 	 *

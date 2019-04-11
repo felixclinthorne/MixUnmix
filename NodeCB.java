@@ -8,7 +8,7 @@
  *****************************************************/
 public class NodeCB {
     private int clipBoardNumber;
-    private NodeD<Character> topOfClipBoard;
+    private DoubleLinkedList<Character> myLinkedList;
     private NodeCB next;
 
     public NodeCB() {
@@ -22,11 +22,15 @@ public class NodeCB {
         this.clipBoardNumber = clipBoardNumber;
     }
 
-    public NodeD getTopOfClipBoard() {
-        return topOfClipBoard;
+    public NodeCB getNext() {
+        return next;
     }
 
-    public void setTopOfClipBoard(NodeD topOfClipBoard) {
-        this.topOfClipBoard = topOfClipBoard;
+    public void setNext(NodeCB nextNode) {
+        this.next = nextNode;
+    }
+
+    public DoubleLinkedList getMyLinkedList() {
+        return myLinkedList;
     }
 }

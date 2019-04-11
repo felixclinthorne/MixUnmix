@@ -7,7 +7,6 @@
  *********************************************************/
 
 import java.io.*;
-import java.util.Hashtable;
 import java.util.Scanner;
 
 
@@ -15,18 +14,14 @@ public class Mix {
 
     private DoubleLinkedList<Character> message;
     private String undoCommands;
-    //TODO: Switch to LL
-    private Hashtable<Integer, DoubleLinkedList<Character>> clipBoards;
-
+    private clipBdLinkedList clipBoards;
     private String userMessage;
     private Scanner scan;
 
     public Mix() {
         scan = new Scanner(System.in);
         message = new DoubleLinkedList<Character>();
-        //TODO: Switch to LL
-        clipBoards = new Hashtable<Integer, DoubleLinkedList<Character>>();
-
+        clipBoards = new clipBdLinkedList();
         undoCommands = "";
     }
 
