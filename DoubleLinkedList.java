@@ -66,21 +66,20 @@ public class DoubleLinkedList<E>  {
 		NodeD<E> newNode = new NodeD<E>();
 		newNode.setData(e);
 
-		NodeD<E> tempPrevious = new NodeD<E>();
-		if (cursor.getPrev() != null) {
-			setCursor(index-1);
-			tempPrevious = cursor;
-		}
-		NodeD<E> tempNext = new NodeD<E>();
-		if (cursor.getNext() != null) {
+		if(index == 0) {
+			newNode.setNext(this.top);
+			this.top.setPrev(newNode);
+			this.top = newNode;
+		} else if(index == this.size()) {
+			this.add(e);
+		} else {
 			setCursor(index);
-			tempPrevious = cursor;
+			cursor.setPrev(newNode);
+			newNode.setNext(cursor);
+			setCursor(index - 1);
+			cursor.setNext(newNode);
+			newNode.setPrev(cursor);
 		}
-
-		newNode.setNext(tempNext);
-		newNode.setPrev(tempPrevious);
-		tempNext.setPrev(newNode);
-		tempPrevious.setNext(newNode);
 	}
 
 	/**

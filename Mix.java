@@ -172,8 +172,8 @@ public class Mix {
         }
 
         undoCommands = undoCommands + "b " + token + " " + index + "\n";
-        for (int i = token.length() - index; i < token.length(); i++) {
-            message.add(token.charAt(i));
+        for (int i = token.length() - 1; i >= 0; i--) {
+            message.add(index, token.charAt(i));
         }
         return;
     }
