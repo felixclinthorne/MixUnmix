@@ -121,9 +121,9 @@ public class Mix {
 
     private void delete(char c) {
     	for (int i = 0; i < message.size(); i++) {
-			if (message.get(i) == c) {
-				message.remove(i);
-			}
+			while(message.get(i) == c) {
+			    message.remove(i);
+            }
 		}
 	}
 
