@@ -46,7 +46,7 @@ public class Mix {
             String currUndoCommands = undoCommands;
 
             try {
-                String command = scan.next("[Qbrpcxh]");
+                String command = scan.next("[Qbrdcxphz]");
 
                 switch (command) {
                     case "Q":
@@ -77,6 +77,15 @@ public class Mix {
 							}
 						}
                         break;
+					case "d":
+						String str3 = scan.next();
+						if(str3.length() == 1) {
+							delete(str3.charAt(0));
+						} else {
+							throw new IllegalArgumentException();
+						}
+						break;
+
                     case "c":
                         copy(scan.nextInt(), scan.nextInt(), scan.nextInt());
                         break;
@@ -89,6 +98,8 @@ public class Mix {
                     case "h":
                         helpPage();
                         break;
+					case "z":
+						break;
 
                     // all the rest of the commands have not been done
                     // No "real" error checking has been done.
@@ -107,6 +118,14 @@ public class Mix {
 
         } while (true);
     }
+
+    private void delete(char c) {
+    	for (int i = 0; i < message.size(); i++) {
+			if (message.get(i) == c) {
+				message.remove(i);
+			}
+		}
+	}
 
     private void remove(int start, int stop) {
     	if (start < 0 || stop >= message.size() - 1
@@ -196,6 +215,8 @@ public class Mix {
         System.out.println();
         System.out.println("\t'r # *' remove all the characters within the message, range # to *");
         System.out.println("\tExample: 'r 3 5 would start at position 3 and remove 3, 4, 5");
+        System.out.println();
+        System.out.println("\t'd #' will delete all of the '#' in the message. '#' is one character");
         System.out.println();
         System.out.println("\t'h'\tmeans to show this help page");
         System.out.println();
