@@ -43,6 +43,9 @@ public class Mix {
 
             // save state
             DoubleLinkedList<Character> currMessage =  new DoubleLinkedList<>();
+            for(int i = 0; i < message.size(); i++) {
+                currMessage.add(message.get(i));
+            }
             String currUndoCommands = undoCommands;
 
             try {
