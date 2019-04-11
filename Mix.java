@@ -154,8 +154,9 @@ public class Mix {
 	}
 
 
-    private void cut(int start, int stop, int clipNum) {
-
+    private void cut(int clipNum, int start, int stop) {
+        copy(start, stop, clipNum);
+        remove(start, stop);
     }
 
     private void copy(int start, int stop, int clipNum) {
