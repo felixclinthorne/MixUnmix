@@ -34,10 +34,10 @@ public class Mix {
 
 
     private void mixture() {
+        for (int i = 0; i < userMessage.length(); i++) {
+            message.add(userMessage.charAt(i));
+        }
         do {
-            for (int i = 0; i < userMessage.length(); i++) {
-                message.add(userMessage.charAt(i));
-            }
             DisplayMessage();
             System.out.print("Command: ");
 
@@ -175,6 +175,7 @@ public class Mix {
         for (int i = token.length() - index; i < token.length(); i++) {
             message.add(token.charAt(i));
         }
+        return;
     }
 
     private void DisplayMessage() {
