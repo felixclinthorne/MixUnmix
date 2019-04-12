@@ -216,7 +216,7 @@ public class Mix {
     /**
      * This method will go through the message and delete any instance
      * of the given character.  For example, the word "testing" should
-     * look like "esing" after this command is selected.
+     * look like "esing" after the command 'd t' is selected.
      *
      * @param c The character to be deleted
      */
@@ -355,41 +355,54 @@ public class Mix {
         return;
     }
 
+    /**
+     * This method will randomize the four basic commands of add before, remove,
+     * delete, and replace.
+     */
     private void randomize() {
-        System.out.println("called");
         Random rand = new Random();
+        //Sets the number of random operations to 4
         int n = rand.nextInt(4) + 1;
 
+        //Loops through and checks for the specific case statement
         for (int i = 0; i < n; i++) {
             int choice =  rand.nextInt(4);
+            //instance variables
             int index1;
             int index2;
             String chars;
             String token;
             int position;
+            //Checks for each random integer
             switch (choice) {
+                //Inserts text before a random index
                 case 0:
                     index1 = rand.nextInt(this.message.size());
                     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
                     token = "";
+                    //Makes sure the random index is not out of range
                     for(int j = 0; j < rand.nextInt(4) + 1; j++) {
                         position = rand.nextInt(chars.length());
                         token = token + chars.charAt(position);
                     }
                     this.insertbefore(token, index1);
                     break;
+                //Removes text starting at index1 and stopping at index2
                 case 1:
+                    //Makes sure the size of the message is over 2
                     if (this.message.size() > 2) {
                         index1 = rand.nextInt(this.message.size() - 1);
                         index2 = index1 + rand.nextInt(this.message.size() - 1 - index1);
                         this.remove(index1, index2);
                     }
                     break;
+                //Deletes any instance of the specified character
                 case 2:
                     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
                     token = String.valueOf(message.get(rand.nextInt(message.size() - 2)));
                     this.delete(token.charAt(0));
                     break;
+                //Removes and replaces any instance of a given character with another character
                 case 3:
                     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
                     this.replace(message.get(rand.nextInt(message.size() - 2)), chars.charAt(rand.nextInt(chars.length())));
