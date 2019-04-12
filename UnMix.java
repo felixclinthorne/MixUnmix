@@ -55,7 +55,11 @@ public class UnMix {
 
 	private void insertbefore(int index, String token) {
 		for (int i = token.length() - 1; i >= 0; i--) {
-			message.add(index, token.charAt(i));
+            if (token.charAt(i) == '~') {
+                message.add(' ');
+            } else {
+                message.add(index, token.charAt(i));
+            }
 		}
 	}
 
