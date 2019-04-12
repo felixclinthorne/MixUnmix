@@ -307,6 +307,14 @@ public class Mix {
 
         //Adds the insertion into the undo commands
         undoCommands = undoCommands + "b " + token + " " + index + "\n";
+        String newToken = "";
+        for(int i = 0; i < token.length(); i++) {
+            if(token.charAt(i) == ' ') {
+                newToken = newToken + "~";
+            } else {
+                newToken = newToken + token.charAt(i);
+            }
+        }
         //Loops through the message and determines where to add the substring
         for (int i = token.length() - 1; i >= 0; i--) {
             message.add(index, token.charAt(i));
