@@ -476,5 +476,11 @@ public class Mix {
         System.out.println("\t'r # *' replaces all the # with * in the message. # and * are each one character");
         System.out.println();
         System.out.println("\t'z' randomizes the message and mixes it a multiple number of times");
+        System.out.println();
+        System.out.println("\t'c # % &' copies to # clipboard from % character to & character");
+        System.out.println();
+        System.out.println("\t'x # % &' cuts to # clipboard from % character to & character");
+        System.out.println();
+        System.out.println("\t'p # %' pastes from # clipboard starting at % character slot");
     }
 }
