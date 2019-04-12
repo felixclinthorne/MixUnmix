@@ -97,6 +97,7 @@ public class Mix {
                             int num;
                             if (scan.hasNextInt()) {
                                 num = scan.nextInt();
+                                this.insertbefore(str, num);
                             }
                             else {
                                 throw new IllegalArgumentException();
@@ -104,7 +105,6 @@ public class Mix {
                         } else {
                             throw new IllegalArgumentException();
                         }
-                        insertbefore(scan.next(), scan.nextInt());
                         break;
                     //There are two types of 'r' commands.  In the case of 'r' followed
                     //by two integers, remove the characters in the range of those integers.
@@ -195,7 +195,7 @@ public class Mix {
         //the given character, then removes it.
     	for (int i = 0; i < message.size(); i++) {
 			while(message.get(i) == c) {
-                undoCommands = undoCommands + "r " + i + " " + message.get(i);
+                undoCommands = undoCommands + "r " + i + " " + message.get(i) + "\n";
 			    message.remove(i);
             }
 		}
