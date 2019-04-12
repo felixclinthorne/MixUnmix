@@ -245,7 +245,6 @@ public class Mix {
 				this.insertbefore(String.valueOf(replace), i);
 			}
 		}
-		undoCommands = undoCommands + "\n";
 	}
 
 
