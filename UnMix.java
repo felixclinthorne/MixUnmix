@@ -72,6 +72,8 @@ public class UnMix {
 
 
 	public String UnMixUsingFile(String filename, String userMessage) {
+		String[] stringList = new String[0];
+		String[] tempStringList = new String[0];
 		for( int i = 0; i < userMessage.length(); i++) {
 			message.add(userMessage.charAt(i));
 		}
@@ -85,8 +87,16 @@ public class UnMix {
 
 		while (scanner.hasNext()) {
 			String command = scanner.nextLine();
-			userMessage = processCommand(command);
-		} 
+			tempStringList = new String[stringList.length + 1];
+			for(int i = 0; i < stringList.length; i++) {
+				tempStringList[i] = stringList[i];
+			}
+			tempStringList[stringList.length] = command;
+			stringList = tempStringList;
+		}
+		for(int i = stringList.length - 1; i >= 0; i--) {
+			userMessage = processCommand(stringList[i]);
+		}
 		return userMessage;
 	}
 }
