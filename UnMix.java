@@ -22,6 +22,8 @@ public class UnMix {
 	}
 
 	public String processCommand(String command) {
+		String token = "";
+		int index = -1;
 		Scanner scan = new Scanner(command);
 		char charInput;
 
@@ -29,7 +31,14 @@ public class UnMix {
 			command = scan.next();
 			switch (command.charAt(0)) {
 
-			// put undo commands here
+				case 'b':
+					token = scan.next();
+					index = scan.nextInt();
+					this.remove(token, index);
+				case 'r':
+					index = scan.nextInt();
+					token = scan.next();
+					this.insertbefore(index, token);
 			}
 		} catch (Exception e) {
 			System.out.println("Error in command!  Problem!!!! in undo commands");
@@ -40,6 +49,18 @@ public class UnMix {
 		}
 
 		return message.toString();
+	}
+
+	private void insertbefore(int index, String token) {
+		for (int i = token.length() - 1; i >= 0; i--) {
+			message.add(index, token.charAt(i));
+		}
+	}
+
+	private void remove(String token, int index) {
+		for (int i = index; i <= index + token.length(); i++) {
+			message.remove(index);
+		}
 	}
 
 	private void unMixture(String filename, String userMessage) {
