@@ -49,6 +49,10 @@ public class UnMix {
 
 
 	public String UnMixUsingFile(String filename, String userMessage) {
+		for( int i = 0; i < userMessage.length(); i++) {
+			message.add(userMessage.charAt(i));
+		}
+
 		Scanner scanner = null;
 		try {
 			scanner = new Scanner(new File(filename));
