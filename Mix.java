@@ -12,6 +12,7 @@
 
 import java.io.*;
 import java.util.Scanner;
+import java.util.Random;
 
 
 public class Mix {
@@ -150,22 +151,23 @@ public class Mix {
 
                     //Copies a given string
                     case "c":
-                        copy(scan.nextInt(), scan.nextInt(), scan.nextInt());
+                        this.copy(scan.nextInt(), scan.nextInt(), scan.nextInt());
                         break;
                     //Cuts a given string
                     case "x":
-                        cut(scan.nextInt(), scan.nextInt(), scan.nextInt());
+                        this.cut(scan.nextInt(), scan.nextInt(), scan.nextInt());
                         break;
                     //Pastes a given string
                     case "p":
-                        paste(scan.nextInt(), scan.nextInt());
+                        this.paste(scan.nextInt(), scan.nextInt());
                         break;
                     //Brings up the help screen with all the commands
                     case "h":
-                        helpPage();
+                        this.helpPage();
                         break;
                     //Does a random assortment of the previous commands
 					case "z":
+					    this.randomize();
 						break;
                 }
                 scan.nextLine();   // should flush the buffer
@@ -319,6 +321,42 @@ public class Mix {
             message.add(index, token.charAt(i));
         }
         return;
+    }
+
+    private void randomize() {
+        Random rand1 = new Random(4);
+        Random rand2 = new Random();
+        int n = rand1.nextInt() + 1;
+
+        for (int i = 0; i < n; i++) {
+            int choice =  rand1.nextInt();
+            int index1;
+            int index2;
+            String chars;
+            String token;
+            int position;
+            switch (choice) {
+                case 0:
+                    index1 = rand2.nextInt(this.message.size());
+                    chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+                    token = "";
+                    for(int j = 0; j < rand1.nextInt(); j++) {
+                        position = rand2.nextInt(chars.length());
+                        token = token + chars.charAt(position);
+                    }
+                    this.insertbefore(token, index1);
+                case 1:
+                    index1 = rand2.nextInt(this.message.size());
+                    index2 = index1 + rand2.nextInt(this.message.size() - index1);
+                    this.remove(index1, index2);
+                case 2:
+                    chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+                    this.delete(chars.charAt(rand2.nextInt(chars.length())));
+                case 3:
+                    chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+                    this.replace(chars.charAt(rand2.nextInt(chars.length())), chars.charAt(rand2.nextInt(chars.length())));
+            }
+        }
     }
 
     /**
