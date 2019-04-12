@@ -151,16 +151,44 @@ public class Mix {
 
                     //Copies a given string
                     case "c":
-                        this.copy(scan.nextInt(), scan.nextInt(), scan.nextInt());
-                        break;
+                        if (scan.hasNextInt()) {
+                            if (scan.hasNextInt()) {
+                                if (scan.hasNextInt()) {
+                                    this.copy(scan.nextInt(), scan.nextInt(), scan.nextInt());
+                                    break;
+                                } else {
+                                    throw new IllegalArgumentException();
+                                }
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+                        } else {
+                            throw new IllegalArgumentException();
+                        }
                     //Cuts a given string
                     case "x":
-                        this.cut(scan.nextInt(), scan.nextInt(), scan.nextInt());
-                        break;
+                        if (scan.hasNextInt()) {
+                            if (scan.hasNextInt()) {
+                                if (scan.hasNextInt()) {
+                                    this.cut(scan.nextInt(), scan.nextInt(), scan.nextInt());
+                                    break;
+                                } else {
+                                    throw new IllegalArgumentException();
+                                }
+                            } else {
+                                throw new IllegalArgumentException();
+                            }
+                        } else {
+                            throw new IllegalArgumentException();
+                        }
                     //Pastes a given string
                     case "p":
-                        this.paste(scan.nextInt(), scan.nextInt());
-                        break;
+                        if (scan.hasNextInt()) {
+                            if (scan.hasNextInt()) {
+                                this.paste(scan.nextInt(), scan.nextInt());
+                                break;
+                            }
+                        }
                     //Brings up the help screen with all the commands
                     case "h":
                         this.helpPage();
