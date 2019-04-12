@@ -197,7 +197,11 @@ public class Mix {
         //the given character, then removes it.
     	for (int i = 0; i < message.size(); i++) {
 			while(message.get(i) == c) {
-                undoCommands = undoCommands + "r " + i + " " + message.get(i) + "\n";
+			    if(message.get(i) == ' ') {
+                    undoCommands = undoCommands + "r " + i + " " + "~" + "\n";
+                } else {
+                    undoCommands = undoCommands + "r " + i + " " + message.get(i) + "\n";
+                }
 			    message.remove(i);
             }
 		}
@@ -324,12 +328,12 @@ public class Mix {
     }
 
     private void randomize() {
-        Random rand1 = new Random(4);
-        Random rand2 = new Random();
-        int n = rand1.nextInt() + 1;
+        System.out.println("called");
+        Random rand = new Random();
+        int n = rand.nextInt(4) + 1;
 
         for (int i = 0; i < n; i++) {
-            int choice =  rand1.nextInt();
+            int choice =  rand.nextInt(4);
             int index1;
             int index2;
             String chars;
@@ -337,24 +341,37 @@ public class Mix {
             int position;
             switch (choice) {
                 case 0:
-                    index1 = rand2.nextInt(this.message.size());
+                    System.out.println("case 0");
+                    index1 = rand.nextInt(this.message.size());
                     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
                     token = "";
-                    for(int j = 0; j < rand1.nextInt(); j++) {
-                        position = rand2.nextInt(chars.length());
+                    for(int j = 0; j < rand.nextInt(4) + 1; j++) {
+                        position = rand.nextInt(chars.length());
                         token = token + chars.charAt(position);
                     }
+                    System.out.println("Token = " + token);
                     this.insertbefore(token, index1);
+                    break;
                 case 1:
-                    index1 = rand2.nextInt(this.message.size());
-                    index2 = index1 + rand2.nextInt(this.message.size() - index1);
-                    this.remove(index1, index2);
+                    if (this.message.size() > 2) {
+                        System.out.println("case 1");
+                        index1 = rand.nextInt(this.message.size());
+                        index2 = index1 + rand.nextInt(this.message.size() - index1);
+                        this.remove(index1, index2);
+                    }
+                    break;
                 case 2:
+                    System.out.println("case 2");
                     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-                    this.delete(chars.charAt(rand2.nextInt(chars.length())));
+                    token = String.valueOf(message.get(rand.nextInt(message.size() - 2)));
+                    System.out.println("Token is: " +  token);
+                    this.delete(token.charAt(0));
+                    break;
                 case 3:
+                    System.out.println("case 3");
                     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-                    this.replace(chars.charAt(rand2.nextInt(chars.length())), chars.charAt(rand2.nextInt(chars.length())));
+                    this.replace(message.get(rand.nextInt(message.size() - 2)), chars.charAt(rand.nextInt(chars.length())));
+                    break;
             }
         }
     }
