@@ -35,10 +35,12 @@ public class UnMix {
 					token = scan.next();
 					index = scan.nextInt();
 					this.remove(token, index);
+					break;
 				case 'r':
 					index = scan.nextInt();
 					token = scan.next();
 					this.insertbefore(index, token);
+					break;
 			}
 		} catch (Exception e) {
 			System.out.println("Error in command!  Problem!!!! in undo commands");
@@ -58,7 +60,7 @@ public class UnMix {
 	}
 
 	private void remove(String token, int index) {
-		for (int i = index; i <= index + token.length(); i++) {
+		for (int i = index; i < index + token.length(); i++) {
 			message.remove(index);
 		}
 	}
