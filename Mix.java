@@ -183,6 +183,7 @@ public class Mix {
         //the given character, then removes it.
     	for (int i = 0; i < message.size(); i++) {
 			while(message.get(i) == c) {
+                undoCommands = undoCommands + "r " + i + " " + message.get(i);
 			    message.remove(i);
             }
 		}
@@ -206,7 +207,11 @@ public class Mix {
     	//Reconstructs the string, then deletes the specified portion
     	String temp = "";
     	for (int i = start; i <= stop; i++) {
-    		temp = temp + message.get(i);
+    		if (message.get(start) == ' ') {
+                temp = temp + "~";
+            } else {
+                temp = temp + message.get(start);
+            }
     		message.remove(start);
     	}
     	//Places the message into the undo command.
@@ -224,8 +229,8 @@ public class Mix {
         //replaces it with replace.
 		for (int i = 0; i < message.size(); i++) {
 			if (message.get(i) == find) {
-				message.remove(i);
-				message.add(i, replace);
+				this.remove(i, i);
+				this.insertbefore(String.valueOf(replace), i);
 			}
 		}
 		undoCommands = undoCommands + "\n";
