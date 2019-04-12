@@ -466,14 +466,14 @@ public class Mix {
         System.out.println();
         System.out.println("\t'r # *' remove all the characters within the message, range # to *");
         System.out.println("\tExample: 'r 3 5 would start at position 3 and remove 3, 4, 5");
+        System.out.println("\tNote: This command works only if # and * are integers.");
         System.out.println();
         System.out.println("\t'd #' will delete all of the '#' in the message. '#' is one character");
         System.out.println();
         System.out.println("\t'h'\tmeans to show this help page");
         System.out.println();
-        System.out.println("\t'd #' deletes all of the '#' in the message. '#' is one character");
-        System.out.println();
         System.out.println("\t'r # *' replaces all the # with * in the message. # and * are each one character");
+        System.out.println("\tNote: This command works only if # and * are non-integers");
         System.out.println();
         System.out.println("\t'z' randomizes the message and mixes it a multiple number of times");
         System.out.println();
@@ -482,5 +482,6 @@ public class Mix {
         System.out.println("\t'x # % &' cuts to # clipboard from % character to & character");
         System.out.println();
         System.out.println("\t'p # %' pastes from # clipboard starting at % character slot");
+        System.out.println();
     }
 }
