@@ -92,6 +92,18 @@ public class Mix {
                         System.exit(0);
                     //Inserts a given string before the given character slot
                     case "b":
+                        if(scan.hasNext()) {
+                            String str = scan.next();
+                            int num;
+                            if (scan.hasNextInt()) {
+                                num = scan.nextInt();
+                            }
+                            else {
+                                throw new IllegalArgumentException();
+                            }
+                        } else {
+                            throw new IllegalArgumentException();
+                        }
                         insertbefore(scan.next(), scan.nextInt());
                         break;
                     //There are two types of 'r' commands.  In the case of 'r' followed
