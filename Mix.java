@@ -247,8 +247,8 @@ public class Mix {
      */
     private void cut(int clipNum, int start, int stop) {
         //Copies, then removes the portion
-        copy(start, stop, clipNum);
-        remove(start, stop);
+        this.copy(clipNum, start, stop);
+        this.remove(start, stop);
     }
 
     /**
@@ -259,9 +259,9 @@ public class Mix {
      * @param stop The stopping point of the copied portion
      * @param clipNum The assigned clipboard number
      */
-    private void copy(int start, int stop, int clipNum) {
+    private void copy(int clipNum, int start, int stop) {
         //Copies the substring and assigns it to a clipboard
-        String copyString = userMessage.substring(start, stop);
+        String copyString = userMessage.substring(start, stop + 1);
         clipBoards.add(clipNum, copyString);
         return;
     }
