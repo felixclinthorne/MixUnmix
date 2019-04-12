@@ -369,7 +369,6 @@ public class Mix {
             int position;
             switch (choice) {
                 case 0:
-                    System.out.println("case 0");
                     index1 = rand.nextInt(this.message.size());
                     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
                     token = "";
@@ -377,26 +376,21 @@ public class Mix {
                         position = rand.nextInt(chars.length());
                         token = token + chars.charAt(position);
                     }
-                    System.out.println("Token = " + token);
                     this.insertbefore(token, index1);
                     break;
                 case 1:
                     if (this.message.size() > 2) {
-                        System.out.println("case 1");
-                        index1 = rand.nextInt(this.message.size());
-                        index2 = index1 + rand.nextInt(this.message.size() - index1);
+                        index1 = rand.nextInt(this.message.size() - 1);
+                        index2 = index1 + rand.nextInt(this.message.size() - 1 - index1);
                         this.remove(index1, index2);
                     }
                     break;
                 case 2:
-                    System.out.println("case 2");
                     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
                     token = String.valueOf(message.get(rand.nextInt(message.size() - 2)));
-                    System.out.println("Token is: " +  token);
                     this.delete(token.charAt(0));
                     break;
                 case 3:
-                    System.out.println("case 3");
                     chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
                     this.replace(message.get(rand.nextInt(message.size() - 2)), chars.charAt(rand.nextInt(chars.length())));
                     break;
